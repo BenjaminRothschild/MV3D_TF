@@ -10,18 +10,22 @@
 set -x
 set -e
 
-export PYTHONUNBUFFERED="True"
+#export PYTHONUNBUFFERED="True"
+#
+#DEV=$0
+#DEV_ID=$1
+#WEIGHTS=$3
+#DATASET=$4
+#
+#array=( $@ )
+#len=${#array[@]}
+#EXTRA_ARGS=${array[@]:4:$len}
+#EXTRA_ARGS_SLUG=${EXTRA_ARGS// /_}
 
-DEV=$1
-DEV_ID=$2
-WEIGHTS=$3
-DATASET=$4
-
-array=( $@ )
-len=${#array[@]}
-EXTRA_ARGS=${array[@]:4:$len}
-EXTRA_ARGS_SLUG=${EXTRA_ARGS// /_}
-
+DEV="gpu"
+DEV_ID=0
+WEIGHTS=/home1/liumeng/object_detect/MV3D_TF/data/pretrain_model/VGG_imagenet.npy
+DATASET=kitti_train
 
 
 LOG="experiments/logs/mv3d_end2end_.txt.`date +'%Y-%m-%d_%H-%M-%S'`"
